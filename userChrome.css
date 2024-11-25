@@ -1,0 +1,88 @@
+/* Integrated URL bar & webview */
+#browser {
+  background: var(--zen-main-browser-background-toolbar) !important;
+  --urlbar-min-width: 28px !important;
+  #nav-bar-customization-target {
+    align-items: center;
+  }
+  #TabsToolbar {
+    .tabbrowser-tab:not(:is([visuallyselected], [multiselected])), .toolbarbutton-1 {
+      fill: #fff !important;
+      color: #fff !important;
+    }
+  }
+  #nav-bar {
+    background-color: var(--lwt-accent-color) !important; /* URL Bar color changing rgba(0, 0, 0, 0.2) */
+    border-radius: 10px 10px 0px 0px !important;
+    padding-left: 6px !important;
+    margin-right: 6px !important;
+    margin-top: 6px !important;
+    margin-bottom: 0px !important;
+    scale: 100% !important;
+    z-index: 999;
+    transition: all 0.1s ease-in-out !important;
+  }
+  .browserContainer {
+    transition: all 0.1s ease-in-out !important;
+    border-radius: 0px 0px 10px 10px !important;
+  }
+  &:not(:has(.zen-glance-background)),:not(:has(.zen-split-view-splitter)) {
+    #nav-bar {
+      scale: 100% !important;
+      border-radius: 10px 10px 0px 0px !important;
+      transition: all 0.1s ease-in-out !important;
+    }
+    .browserContainer {
+      transition: all 0.1s ease-in-out !important;
+      border-radius: 0px 0px 10px 10px !important;
+    } 
+  }
+  &:has(.zen-glance-background) {
+    #nav-bar {
+      scale: 98% !important;
+      border-radius: 10px 10px 10px 10px !important;
+      transition: all 0.1s ease-in-out !important;
+    }
+    .browserContainer {
+      transition: all 0.1s ease-in-out !important;
+      border-radius: 10px 10px 10px 10px !important;
+
+    } 
+  }
+  &:has(.zen-split-view-splitter) {
+    #nav-bar {
+      --zen-toolbar-height: 32px;
+      scale: 100% !important;
+      margin-top: 6px !important;
+      margin-bottom: 4px !important;
+      border-radius: 10px 10px 10px 10px !important;
+      transition: all 0.1s ease-in-out !important;
+    }
+    .browserContainer {
+      transition: all 0.1s ease-in-out !important;
+      border-radius: 10px 10px 10px 10px !important;
+
+    } 
+  }
+}
+@media not (-moz-bool-pref:"zen.view.compact") {
+  #browser {
+    &:has(#navigator-toolbox[zen-expanded="true"]) {
+      #nav-bar {
+        margin-left: 1px !important;
+      }
+    }
+  }
+}
+
+@media (-moz-bool-pref:"zen.view.compact") {
+  #browser {
+    &:has(#navigator-toolbox[zen-expanded="true"]) {
+      #nav-bar {
+        margin-left: 6px !important;
+      }
+    }
+  }
+}
+
+
